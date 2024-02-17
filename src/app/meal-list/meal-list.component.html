@@ -1,0 +1,15 @@
+<!-- meal-details.component.html -->
+
+<div class="meal-card" *ngFor="let meal of meals">
+    <div class="meal-container">
+        <h2>{{ meal.name }}</h2>
+        <p>{{ meal.description }}</p>
+        <div class="meal-photo-container">
+            <img *ngIf="!meal.showVideo && meal.photoUrl" [src]="meal.photoUrl" alt="Meal Photo"
+                (click)="toggleVideo(meal)">
+            <video *ngIf="meal.showVideo && meal.videoUrl" controls (click)="toggleVideo(meal)">
+                <source [src]="meal.videoUrl" type="video/mp4">
+            </video>
+        </div>
+    </div>
+</div>
